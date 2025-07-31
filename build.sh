@@ -1,13 +1,12 @@
 #!/bin/bash
 
-# Activate virtual environment if needed (Render does this internally)
+# Install Python packages (force reinstall to avoid cache issues)
+pip install --upgrade pip
+pip install --no-cache-dir -r requirements.txt
 
-# Install Python packages
-pip install -r requirements.txt
-
-# Download NLTK + SpaCy models
+# Download models
 python -m nltk.downloader punkt
 python -m spacy download en_core_web_sm
 
-# Confirm build succeeded
+# Confirm build success
 echo "✅ Build script completed successfully."
